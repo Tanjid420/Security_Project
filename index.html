@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Vigenere-Cipher</title>
+  </head>
+  <body>
+    <div class="main_div">
+      <!-- Text encrytpion and Decryption-- -->
+      <div class="text_div">
+        <h1 style="font-size: 28px">Text Encryption & Decryption</h1>
+
+        <!-- text-area -->
+        <div class="text_key_div">
+          <textarea
+            style="
+              outline: none;
+              border: none;
+              width: 500px;
+              font-size: 15px;
+              border-radius: 8px;
+              padding: 1rem;
+            "
+            id="textToEncrypt"
+            placeholder="Enter text to encrypt"
+          ></textarea>
+          <input
+            style="
+              outline: none;
+              border: none;
+              width: 500px;
+              font-size: 15px;
+              border-radius: 8px;
+              padding: 0.8rem 1rem;
+            "
+            type="text"
+            id="textKey"
+            placeholder="Enter encryption key"
+          />
+        </div>
+        <!-- buttons -->
+        <div class="encrypt_decrypt_btn">
+          <button
+            style="
+              border: none;
+              background: #000;
+              color: white;
+              padding: 0.5rem 1.5rem;
+              border-radius: 8px;
+              font-size: 15px;
+            "
+            id="encryptTextButton"
+          >
+            Encrypt Text
+          </button>
+          <button
+            style="
+              border: none;
+              background: #000;
+              color: white;
+              padding: 0.5rem 1.5rem;
+              border-radius: 8px;
+              font-size: 15px;
+            "
+            id="decryptTextButton"
+          >
+            Decrypt Text
+          </button>
+        </div>
+
+        <!-- show encryption and decryption -->
+        <div class="show_text">
+          <div style="padding: 0.5rem 2rem">
+            <h2>Encrypted Text</h2>
+            <p id="encryptedText"></p>
+          </div>
+          <div style="padding: 0.5rem 2rem">
+            <h2>Decrypted Text</h2>
+            <p id="decryptedText"></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Image encryption & decryption -->
+      <div class="img_div">
+        <h1 style="font-size: 28px">Image Encryption & Decryption</h1>
+        <div class="input_imgfile">
+          <h2>Input an image</h2>
+          <input
+            style="
+              border: 1px solid gray;
+              padding: 0.4rem 0.5rem;
+              border-radius: 8px;
+              width: 450px;
+            "
+            type="file"
+            id="inputImage"
+            accept="image/*"
+          />
+          <input
+            style="
+              outline: none;
+              border: none;
+              width: 450px;
+              font-size: 15px;
+              border-radius: 8px;
+              padding: 0.8rem 1rem;
+            "
+            type="text"
+            id="imgTextKey"
+            placeholder="Enter encryption key"
+          />
+          <button
+            style="
+              border: none;
+              background: #000;
+              color: white;
+              padding: 0.5rem 1.5rem;
+              border-radius: 8px;
+              font-size: 15px;
+            "
+            id="encryptimgButton"
+          >
+            Encrypt Image
+          </button>
+        </div>
+
+        <div
+          style="
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+          "
+        >
+          <h2>Decrypted Image</h2>
+          <img
+            id="decryptedImage"
+            alt="Decrypted Image"
+            style="height: 150px; width: 200px; border: 1px solid gray"
+          />
+        </div>
+      </div>
+
+      <!-- Audio encrytpion & decryption -->
+      <div class="audio_div">
+        <h1 style="font-size: 28px">Image Encryption & Decryption</h1>
+        <div class="input_audiofile">
+          <h2>Input an audio</h2>
+          <input
+            style="
+              border: 1px solid gray;
+              padding: 0.4rem 0.5rem;
+              border-radius: 8px;
+              width: 450px;
+            "
+            type="file"
+            id="audioFile"
+            accept="audio/*"
+          />
+          <input
+            style="
+              outline: none;
+              border: none;
+              width: 450px;
+              font-size: 15px;
+              border-radius: 8px;
+              padding: 0.8rem 1rem;
+            "
+            type="text"
+            id="audioTextKey"
+            placeholder="Enter encryption key"
+          />
+          <button
+            style="
+              border: none;
+              background: #000;
+              color: white;
+              padding: 0.5rem 1.5rem;
+              border-radius: 8px;
+              font-size: 15px;
+            "
+            id="encryptaudioButton"
+          >
+            Encrypt audio
+          </button>
+        </div>
+        <div class="decrypt_div">
+          <button
+            style="
+              border: none;
+              background: #000;
+              color: white;
+              padding: 0.5rem 1.5rem;
+              border-radius: 8px;
+              font-size: 15px;
+            "
+            id="decryptaudioButton"
+          >
+            Decrypt
+          </button>
+          <audio id="outputAudio" controls></audio>
+        </div>
+      </div>
+
+      <!-- Video encryption & decryption -->
+      <div class="video_div">
+        <h1 style="font-size: 28px">Video Encryption & Decryption</h1>
+        <div class="input_videofile">
+          <input
+            style="
+              border: 1px solid gray;
+              padding: 0.4rem 0.5rem;
+              border-radius: 8px;
+              width: 450px;
+            "
+            type="file"
+            id="videoFile"
+            accept="video/*"
+          />
+          <input
+            style="
+              outline: none;
+              border: none;
+              width: 450px;
+              font-size: 15px;
+              border-radius: 8px;
+              padding: 0.8rem 1rem;
+            "
+            type="text"
+            id="videoKey"
+            placeholder="Enter key..."
+          />
+          <button
+            style="
+              border: none;
+              background: #000;
+              color: white;
+              padding: 0.5rem 1.5rem;
+              border-radius: 8px;
+              font-size: 15px;
+            "
+            id="encryptvideoButton"
+          >
+            Encrypt video
+          </button>
+        </div>
+
+        <div class="decrypt_div">
+          <button
+            style="
+              border: none;
+              background: #000;
+              color: white;
+              padding: 0.5rem 1.5rem;
+              border-radius: 8px;
+              font-size: 15px;
+              margin-bottom: 2rem;
+            "
+            id="decryptvideoButton"
+          >
+            Dncrypt video
+          </button>
+          <video id="outputVideo" controls></video>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
